@@ -98,7 +98,7 @@ def get_all_favorites():
 
 @app.route('/favorite/planet/<int:planet_id>', methods=['POST'])
 def add_favorite_planet(planet_id):
-    user_id = 1  # user_id hardcodeado hasta implementar auth
+    user_id = 1  
     new_favorite = Favorite(user_id=user_id, planet_id=planet_id)
     db.session.add(new_favorite)
     db.session.commit()
@@ -106,7 +106,7 @@ def add_favorite_planet(planet_id):
 
 @app.route('/favorite/people/<int:people_id>', methods=['POST'])
 def add_favorite_people(people_id):
-    user_id = 1  # user_id hardcodeado hasta implementar auth
+    user_id = 1 
     new_favorite = Favorite(user_id=user_id, people_id=people_id)
     db.session.add(new_favorite)
     db.session.commit()
@@ -114,7 +114,7 @@ def add_favorite_people(people_id):
 
 @app.route('/favorite/planet/<int:planet_id>', methods=['DELETE'])
 def delete_favorite_planet(planet_id):
-    user_id = 1  # user_id hardcodeado
+    user_id = 1 
     favorite = Favorite.query.filter_by(user_id=user_id, planet_id=planet_id).first()
     if favorite is None:
         return jsonify({"msg": "Favorite not found"}), 404
@@ -124,7 +124,7 @@ def delete_favorite_planet(planet_id):
 
 @app.route('/favorite/people/<int:people_id>', methods=['DELETE'])
 def delete_favorite_people(people_id):
-    user_id = 1  # user_id hardcodeado
+    user_id = 1  
     favorite = Favorite.query.filter_by(user_id=user_id, people_id=people_id).first()
     if favorite is None:
         return jsonify({"msg": "Favorite not found"}), 404
